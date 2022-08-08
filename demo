@@ -12,8 +12,44 @@ int main(void)
 	for (i = 1; i <= number; i++)
 	{
 		sum += sign * 1.0 / i;       //这里i为整形数据，但前面都是浮点型数据，再进行整型转化至浮点型时常用乘1.0
-    sign = -sign;                //题目这里的变号比较巧
+                sign = -sign;                //题目这里的变号比较巧
 	}
 	printf("sum=%f\n", sum);
 	return 0;
 }
+
+
+
+
+
+//2.正序地分解整数 例：输入12345；输出：1 2 3 4 5
+
+#include<stdio.h>
+int main(void)
+{
+	int number, d = 0, ret = 0,b=0;
+
+	scanf_s("%d", &number);
+	do 
+	{
+		d = number % 10;
+		number = number / 10;
+		ret = ret * 10 + d;
+	} while (number > 0);
+	printf("%d", ret);
+	printf("\n");                   //这个代码在这里主要
+	
+	do 
+	{
+		b = ret % 10;
+		printf("%d", b);
+		if (ret > 9) 
+		{
+			printf(" ");
+		}
+		ret = ret / 10;
+	} while (ret > 0);
+	printf("\n");
+
+	return 0;
+}                        
