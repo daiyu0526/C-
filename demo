@@ -72,10 +72,10 @@ int main(void)
 	}
 	else
 	{
-		while (number > 9)            //这里是一重点，number的不断条件是大于9，不是大于0，若是大于0，则会出现number=700，base=1000的情况
+		while (number > 9)            //************number的不断条件是大于9，不是大于0，若是大于0，则会出现number=700，base=1000的情况
 		{
 			number = number / 10;
-			base *= 10;
+			base *= 10;           //************
 		}
 		printf("base=%d\n", base);
 	}                                     //以上这里都是数整数位数的地方，同时得到了进制基数
@@ -94,3 +94,70 @@ int main(void)
 	printf("\n");
 	return 0;	
 }
+
+
+
+
+
+
+
+//计算机在计算一些基础问题时常爱用枚举法
+//scanf_s在输入多个数字时，代码中可以不用空格隔开，可以写成scanf_s("%d%d", &u, &v); 但在输入时只能用空格隔开
+//3.计算最大公约数
+
+#include<stdio.h>                              //这是我的代码，这里也是运用到之前学的小方法来设置了一下变量
+int main(void)                                 //这个没设最小值，但是运用了&&符号也可以保证t不会大于两个数中的任意一个
+{
+	int u, v, t = 2, x = 0;
+	scanf_s("%d%d", &u, &v);
+	while (u >= t && v >= t) 
+	{
+		if (u % t == 0 && v % t == 0) 
+		{
+			x = t;
+		}
+		t++;
+	}
+	if (x == 0)
+	{
+		printf("两个数无最大公约数");
+	}
+	else
+	{
+		printf("最大公约数%d", x);
+	}
+	return 0;	
+}
+
+#include<stdio.h>                               //老师的代码，运用了for循环且判断语句用if执行
+int main(void)
+{
+	int u, v, min, i, ret;
+	scanf("%d%d", u, v);
+	if (u > v)
+	{
+		min = u;
+	}
+	else
+	{
+		min = v;
+	}
+	for (i = 1; i < min; i++) 
+	{
+		if (u % i == 0) 
+		{
+			if (v % i == 0) 
+			{
+				ret = i;
+			}
+		}
+	}
+	printf("%d", ret);
+	return 0;	
+}
+
+
+
+
+
+
