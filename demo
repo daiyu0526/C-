@@ -37,10 +37,10 @@ int main(void)
 		ret = ret * 10 + d;
 	} while (number > 0);
 	printf("%d", ret);
-	printf("\n");                   //这个代码在这里主要
-	
-	do 
-	{
+	printf("\n");                   //这个代码将数进行一次倒序
+	                                //而后在下一个while循环中进行倒序逐个输出，可得最终结果
+	do                              //这里是一个替代转向思维，有的无法直接解决的问题，我们可用别的问题再转换
+	{                               //但这个问题无法将700转化为007
 		b = ret % 10;
 		printf("%d", b);
 		if (ret > 9) 
