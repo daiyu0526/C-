@@ -257,3 +257,9 @@ int main(void)
 
 
 
+//*************课程知识点：C语言是一种有类型的语言，在使用变量前必须进行定义，面向底层的语言强调类型
+//           C语言的类型    整数类型：int、char、long、short、long long
+//                          浮点数类型：float、double、long double
+//                          逻辑：bool
+//                          指针类型
+//                          自定义类型
