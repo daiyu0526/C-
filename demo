@@ -611,3 +611,35 @@ int search(int key, int a[], int length)           //此处一开始没有加上
     }
     return ret;                                   //这里的返回值也很巧妙，这里的ret是有两种返回情况在，明确一点是ret返回值是只能返回一个数
 }                                                 //但是我们可以设定不同的值来进行判断的
+
+4、判断素数
+ 4.1 代码遍历2——n-1，一个一个地除下去，来判断其是否有公因数，但这种计算的次数很多且花费时间大
+ 4.2 改进：出了2以外的偶数都不是素数，因此只用判断奇数。在判断某一个奇数时，我们的除数不再+1了，而是+2。因为剩下的素数都是奇数，而奇数的因数里面一定不可能有偶数
+           一个数若那个被偶数整除，则这个数一定是偶数，因此我们在这里把所有的偶数去掉，只判断奇数因数。
+     #include<stdio.h>
+int main() //判断素数
+{
+	int number, i, isprime = -1;
+
+	scanf_s("%d", &number);
+	if (number == 1 || number % 2 == 0 && number != 2) 
+	{
+		isprime = -1;
+	}
+	for (i = 3; i < number; i += 2) 
+	{
+		if (number % i == 0) 
+		{
+			isprime = 1;
+		}
+	}
+	if (isprime == 1) 
+	{
+		printf("yes\n");
+	}
+	else 
+	{
+		printf("no\n");
+	}
+	return 0;
+}
