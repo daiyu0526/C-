@@ -643,3 +643,39 @@ int main() //判断素数
 	}
 	return 0;
 }
+写成整个函数形式
+#include<stdio.h>
+int isprime();                   //写成函数形式的还是有些不太熟悉，需要加强
+int main() 
+{
+	int number, i;
+	scanf_s("%d", &number);
+	i = isprime(number);
+	if (i == 1) 
+	{
+		printf("yes");
+	}
+	else 
+	{
+		printf("no");
+	}
+}
+int isprime(int x)
+{
+	int ret = 1;                   //这里一开始就是判断其为素数，将不是素数的形式一一去掉的
+	
+	if (x == 1 || x != 2 && x % 2 == 0) 
+	{
+		ret = 0;//不是素数
+	}
+	for (int i = 3; i < x; i += 2) 
+	{
+		if (x % i == 0) 
+		{
+			ret = 0;
+		}
+	}
+	return ret;
+}
+ 4.3可以将671行中循环继续的i < x语句改为 i < sqrt(x) ，这样又会节省循环次数
+ 
