@@ -511,8 +511,8 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
     {
 	int number, * a,i;
 	scanf_s("%d", &number);
-	a = (int*)malloc(number * sizeof(int));
-	for (i = 0; i < number; i++) 
+	a = (int*)malloc(number * sizeof(int));    //这个代码实现了可以输入数字然后形成该大小的数组
+	for (i = 0; i < number; i++)               //这个是这句话的具体该如何写的说明，可变的
 	{
 		scanf_s("%d", &a[i]);
 	}
@@ -520,9 +520,10 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
 	{
 		printf("%d ", a[i]);
 	}
-	return 0;
-     }
-     输出结果：
+	free(a);                                  //这里一定要注意，是用来mallco后所形成的地址，使用完后必须的归还的，利用free
+	return 0;                                   想malloc申请的空间大小是以字节为单位的，该malloc函数原本的返回类型是void*，可以转化为自己需要的
+     }                                              在使用malloc时要注意在最上面写#inlcude<stdlib.h>
+     输出结果：                                  //malloc是向系统申请空间
      3
      2 3 4
      2 3 4
