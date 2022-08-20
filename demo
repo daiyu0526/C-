@@ -558,7 +558,7 @@ int main(void)
 	char a[1000];
 	int i;
 
-	scanf_s("%s", a, sizeof(a));  //在vs里面如果是想要输入字符串，还得在最后加上输入字符串的大小，否则无法输入
+	scanf_s("%s", a, sizeof(a));  //在vs里面如果是想要输入字符串，需要在字符串后面再写上sizeof（字符串数组名），且注意到这里的a没有加&
 	printf("%s", a);              //高版本的VS对代码的安全性要求越来越高，想要保证不会溢出
 	return 0;
 }
